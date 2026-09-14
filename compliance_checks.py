@@ -2,7 +2,7 @@
 pipeline (Phase 4) and main.py's synchronous listing pipeline (Phase 6).
 
 Deliberately kept free of step1_preprocess/step2_ocr imports — those pull
-in OpenCV, EasyOCR, and the full PyTorch CPU stack, which the FastAPI
+in OpenCV and the full OCR/PyTorch stack, which the FastAPI
 process has no reason to load just to check a pasted listing's declared
 fields. Everything in this module operates on already-parsed dicts, never
 on raw images.

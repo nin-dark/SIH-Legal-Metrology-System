@@ -38,6 +38,12 @@ The request accepts:
 * `files`: 1–4 uploaded images.
 * `labels`: optional ordered labels for the uploaded images.
 * `product_name`: optional product name.
+* `listing_text`: optional product-listing text. When provided, the request
+  must not include image files.
+
+The endpoint accepts either image files or `listing_text`, but not both. A
+listing-text request is parsed synchronously and stored as a scan with
+`input_type="listing"`. `product_name` may be provided with either input mode.
 
 Allowed image labels are:
 

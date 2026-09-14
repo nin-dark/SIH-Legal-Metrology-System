@@ -212,12 +212,16 @@ def process_image(image_id) -> None:
             temp_file.write(image_bytes)
             temp_path = temp_file.name
 
-        _, enhanced, _ = preprocess_image(temp_path)
+        original, resized, enhanced, _ = preprocess_image(temp_path)
 
-        if enhanced is None:
+        if original is None or resized is None or enhanced is None:
             raise RuntimeError("Could not read the uploaded image")
 
-        raw_lines = extract_text_from_image(enhanced)
+        raw_lines = extract_text_from_image(
+            enhanced,
+            original_image=original,
+            resized_image=resized,
+        )
 
         parsed = parse_legal_metrology_declarations(raw_lines)
 

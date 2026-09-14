@@ -6,7 +6,7 @@ from collections.abc import AsyncGenerator
 from fastapi import Depends, HTTPException, status
 from fastapi_users import BaseUserManager, FastAPIUsers, UUIDIDMixin, schemas
 from fastapi_users.authentication import AuthenticationBackend, BearerTransport, JWTStrategy
-from fastapi_users.db import SQLAlchemyUserDatabase
+from fastapi_users_db_sqlalchemy import SQLAlchemyUserDatabase
 
 from auth_db import get_async_session
 from models import User
